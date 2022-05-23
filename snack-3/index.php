@@ -1,21 +1,54 @@
 <?php
 /* 
-Creare un array con 15 numeri casuali, 
-tenendo conto che l’array non dovrà contenere 
-lo stesso numero più di una volta
+Creare un array di array. Ogni array figlio 
+avrà come chiave una data in questo formato: 
+DD-MM-YYYY es 01-01-2007 e come valore un 
+array di post associati a quella data. 
+Stampare ogni data con i relativi post.
+
+Qui l’array di esempio: https://www.codepile.net/pile/R2K5d68z
 */
 
-$myArray = [];
 
-while (count($myArray) < 15) {
+$posts = [
 
-    $ran_num = rand(1, 100);
-
-    if (!in_array($ran_num, $myArray)) {
-        $myArray[] = $ran_num;
-    }
-}
-
+    '10/01/2019' => [
+        [
+            'title' => 'Post 1',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 1'
+        ],
+        [
+            'title' => 'Post 2',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 2'
+        ],
+    ],
+    '10/02/2019' => [
+        [
+            'title' => 'Post 3',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 3'
+        ]
+    ],
+    '15/05/2019' => [
+        [
+            'title' => 'Post 4',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 4'
+        ],
+        [
+            'title' => 'Post 5',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 5'
+        ],
+        [
+            'title' => 'Post 6',
+            'author' => 'Michele Papagni',
+            'text' => 'Testo post 6'
+        ]
+    ],
+];
 ?>
 
 <!DOCTYPE html>
@@ -30,17 +63,21 @@ while (count($myArray) < 15) {
 
 <body>
 
-    <h2>Your random array:</h2>
+    <?php foreach ($posts as $key => $value) { ?>
 
-    <ul>
+        <h2><?php echo $key; ?></h2>
+        <ul>
+            <?php foreach ($value as $post) { ?>
+                <li>
+                    <h4><?php echo $post['title']; ?></h4>
+                    <h6><?php echo $post['author']; ?></h6>
+                    <p><?php echo $post['text']; ?></p>
+                </li>
+            <?php } ?>
+        </ul>
 
-        <?php for ($i = 0; $i < count($myArray); $i++) { ?>
+    <?php } ?>
 
-            <li><?php echo $myArray[$i]; ?></li>
-
-        <?php } ?>
-
-    </ul>
 </body>
 
 </html>
