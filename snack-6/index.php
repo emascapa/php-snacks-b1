@@ -48,7 +48,7 @@ $db = [
 
 <body class="p-4 bg-dark">
 
-    <div class="bg-danger rounded rounded-4 mb-3 p-4">
+    <div class="bg-secondary rounded rounded-4 mb-3 p-4">
         <h2>Insegnanti:</h2>
         <ul>
             <?php foreach ($db['teachers'] as $teacher) { ?>
@@ -57,7 +57,7 @@ $db = [
         </ul>
     </div>
 
-    <div class="bg-secondary rounded rounded-4 mb-3 p-4">
+    <div class="bg-success rounded rounded-4 mb-3 p-4">
         <h2>Pisani Micenei:</h2>
         <ul>
             <?php foreach ($db['pm'] as $pm) { ?>
